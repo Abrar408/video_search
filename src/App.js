@@ -1,23 +1,44 @@
-import logo from './logo.svg';
-import './App.css';
+import {useState} from 'react'
+import {Stack} from '@mui/material'
+import Appbar from './Navbar.jsx'
+import HomePage from './HomePage.jsx';
+import SearchResult from './SearchResult.jsx';
+import videoData from './Data.js'
 
 function App() {
+  const[home,setHome] = useState(true)
+  const[searchText,setSearchText] = useState('')
+
+  // let searchText =''
+  // const getInputValue=()=>{
+  //   searchText = document.querySelector('input').value
+  //   searchText.toLowerCase()
+  //   console.log(searchText)
+  // }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Appbar home={home} setHome={setHome} setSearchText={setSearchText} />
+      
+      {
+        (home)?
+          <Stack direction='row' flexWrap='wrap'>
+            {
+            videoData.map((videos,index)=>{
+              return (<HomePage video={videos} key={index}/>)
+            })
+          }
+          </Stack>  
+        :<Stack>
+          {/* {getInputValue()} */}
+          {videoData.filter( item => item.title.toLowerCase().includes(searchText)).map((videos,index)=>{
+              return (<SearchResult video={videos} key={index} />)
+            })}
+          
+        </Stack> 
+      }
+      
+      
     </div>
   );
 }
