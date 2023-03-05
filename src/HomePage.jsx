@@ -3,31 +3,36 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import React from "react"
 
 const HomePage = ({video}) => {
-  const colors = ['pink', 'purple', 'blue', 'green', 'red', 'orange', 'yellow']
+  const colors = ['pink', '#ff006f', '#4d47fc', '#7dfc47', '#fc3535', '#ff8e42', '#fff56e']
   return (
     
-    <Card sx={{width:{md:'23%',sm:'46%', xs:'100%'}, border:'1px solid black', borderRadius:'10px',
-     padding:'5px',ml:{md:'auto',sm:'auto', xs:'80px'}, mr:{md:'auto',sm:'auto', xs:'80px'}, mt:'10px'}}>
+    <Card sx={{width:{md:'23%',sm:'46%', xs:'100%'}, border:'none', borderRadius:'10px',
+     padding:'5px',ml:{md:'auto',sm:'auto', xs:'80px'}, mr:{md:'auto',sm:'auto', xs:'80px'},
+      mt:'10px', boxShadow:'0px 2px 5px 0px gray', '&:hover':{transform:'scale(1.1) translate(0px,20px)',boxShadow:'0px 0px 5px 5px gray',zIndex:'1'} }}>
       <CardContent sx={{backgroundColor:colors[Math.floor(Math.random()*colors.length)], height:'150px',
-       border:'1px solid black', borderRadius:'10px', mb:'10px'}}>
+       border:'none', borderRadius:'10px', mb:'10px'}}>
       </CardContent>
-      <CardContent sx={{backgroundColor:'green',paddingBottom:'0px',
-       border:'1px solid black', padding:'0px',height:'60px'}}>
-        <Stack direction='row'>
+      <CardContent sx={{p:0, '&:last-child': { pb: 0 },
+       border:'none', padding:'0px'}}>
+        <Stack direction='row' sx={{height:'90px'}} >
           <IconButton sx={{color:'white',height:'50px',width:'50px', 
-          backgroundColor:'blue',margin:'0px 5px'}}>
+          backgroundColor:'#c7c6c3',margin:'0px 5px'}}>
               <AccountCircleIcon />
           </IconButton>
-          <Stack>
-            <Typography variant='h6' component='span' fontWeight='bold'>
-            {video.title}
-            </Typography>
-            <Typography>
-            {video.channel}
-            </Typography>
-            <Typography>
-            {video.views}
-            </Typography>  
+          <Stack sx={{dispay:'flex', flexDirection:'column', justifyContent:'space-between'}} >  
+            <Stack>          
+              <Typography variant='p' component='span' fontWeight='bold'>
+              {video.title.slice(0,60)}
+              </Typography>
+            </Stack>  
+            <Stack>
+              <Typography fontSize={'16px'} color='gray'>
+              {video.channel}
+              </Typography>
+              <Typography fontSize={'small'} color='gray'>
+              {video.views}
+              </Typography>  
+            </Stack>
           </Stack>       
         </Stack>
       </CardContent>

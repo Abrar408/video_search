@@ -3,7 +3,7 @@ import SearchBar from "./Searchbar";
 
 const Navbar = (props) => {
   return (
-    <AppBar position='sticky' color='secondary'>
+    <AppBar position='sticky' color='primary'>
         <Toolbar>            
             <Stack ml='auto' mr='auto'>
                 <SearchBar home={props.home} setHome={props.setHome} setSearchText={props.setSearchText} />

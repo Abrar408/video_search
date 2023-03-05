@@ -1,4 +1,4 @@
-import { Paper,IconButton,Stack } from "@mui/material"
+import { Paper} from "@mui/material"
 import {Search} from "@mui/icons-material"
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
 
@@ -9,6 +9,7 @@ const SearchBar = ({home,setHome,setSearchText}) => {
     if(home){
       searchText = document.querySelector('input').value
       if(searchText !== ""){
+          setSearchText(searchText)
           setHome(false)
       }
     }
@@ -23,31 +24,29 @@ const SearchBar = ({home,setHome,setSearchText}) => {
   return (
     <Paper
     component="form"
-    // onSubmit={()=>{}}
     sx={{
       borderRadius:20,
       border: '1px solid #e3e3e3',
       pl:2,
       boxShadow:'none',
-      mr: {sm:5}
+      display:'flex',
+      alignItems: 'center'
     }}
     >
       <input
        className="search-bar"
        placeholder="Search..."
+       style={{lineHeight:'30px',fontSize:'20px',border:'none', outline:'none', width:'60vw'}}
       />
-      <IconButton 
-      // type="submit"
       
-      sx={{p:'10px', color:'gray'}}
-      >        
-      {(home)?<Search onClick ={searchVideos}/>
-      :<Stack direction='row'>
-        <Search onClick ={searchVideos}/>
-        <KeyboardReturnIcon onClick ={goToHome}/>
-      </Stack>
-      }        
-      </IconButton>
+      {(home)?
+      <Search onClick ={searchVideos} sx={{color:'gray',mr:'10px','&:hover': { color:'red'}}}/>
+    :
+        <>
+        <Search onClick ={searchVideos} sx={{color:'gray',mr:'10px','&:hover': { color:'red'}}}/>
+        <KeyboardReturnIcon onClick ={goToHome} sx={{color:'gray','&:hover': { color:'black'}}}/>
+        </>
+    }
     </Paper>
   )
 }

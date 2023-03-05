@@ -1,123 +1,58 @@
 const videoData = [
     {
-        title : 'Video 1',
-        views : '2255',
-        channel : 'abc'
+        title : 'C# Application - How to make a WhatsApp Messenger | FoxLearn',
+        views : '143k',
+        channel : 'Learn to code'
     },
     {
-        title : 'Video 2',
-        views : '2255',
-        channel : 'abc'
+        title : 'Faisal Movers Bus Kaisi Hai? | Complete Guide | Karachi to Islamabad | Rapid Fire Kitchen',
+        views : '1.1M',
+        channel : 'PK buses'
     },
     {
-        title : 'Video 3',
-        views : '2255',
-        channel : 'abc'
+        title : 'Is coding really dead? 6 trends that look bad',
+        views : '4.5k',
+        channel : 'Code Ninja'
     },
     {
-        title : 'Video 4',
-        views : '2255',
-        channel : 'abc'
+        title : '7 Cryptography Concepts EVERY Developer Should Know',
+        views : '900k',
+        channel : 'Jxz'
     },
     {
-        title : 'Video 5',
-        views : '2255',
-        channel : 'abc'
+        title : 'Is Web3 all Hype? Top 10 Web 3.0 Questions & Answers',
+        views : '9M',
+        channel : 'Web 3.0'
     },
     {
-        title : 'Video 6',
-        views : '2255',
-        channel : 'abc'
+        title : '$3 Trillion Lithium Found in J&K | Geopolitics of Natural Resources | Dhruv Rathee',
+        views : '100k',
+        channel : 'Dhruv Rathee'
     },
     {
-        title : 'Video 7',
-        views : '2255',
-        channel : 'abc'
+        title : 'Karachi, Al-Qaida & Terrorism FT. Ali K. Chishti | Podcast #25',
+        views : '367k',
+        channel : 'Karachi vynz'
     },
     {
-        title : 'Video 8',
-        views : '2255',
-        channel : 'abc'
+        title : 'React JS Full Course 2022 | Build an App and Master React in 1 Hour',
+        views : '24k',
+        channel : 'Web dev'
     },
     {
-        title : 'Video 9',
-        views : '2255',
-        channel : 'abc'
+        title : 'Saudis in Audis',
+        views : '11M',
+        channel : 'SD'
     },
     {
-        title : 'Video 10',
-        views : '2255',
-        channel : 'abc'
+        title : 'THIS is how you Get RICH in your 20s.',
+        views : '237k',
+        channel : 'Lamo'
     },
     {
-        title : 'Video 11',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 12',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 13',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 14',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 15',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 16',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 17',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 18',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 19',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 20',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 21',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 22',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 23',
-        views : '2255',
-        channel : 'abc'
-    },
-    {
-        title : 'Video 24',
-        views : '2255',
-        channel : 'abc'
+        title : 'Closing a POWER ARC Switch with a WEAK ARC (LATITY-012)',
+        views : '3.7M',
+        channel : 'Rectifier'
     }
 ]
 export default videoData

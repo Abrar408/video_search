@@ -5,15 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: aqua;
+  background-color: #fff;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-.search-bar{
+.App{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+/* .search-bar{
   border:none;
   outline:none;
   width:60vw; 
-}
+} */
