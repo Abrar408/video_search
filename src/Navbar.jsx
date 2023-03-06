@@ -6,7 +6,7 @@ const Navbar = (props) => {
     <AppBar position='sticky' color='primary'>
         <Toolbar>            
             <Stack ml='auto' mr='auto'>
-                <SearchBar home={props.home} setHome={props.setHome} setSearchText={props.setSearchText} />
+                <SearchBar home={props.home} setHome={props.setHome} />
             </Stack>
         </Toolbar>
     </AppBar>

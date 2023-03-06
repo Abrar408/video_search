@@ -1,29 +1,28 @@
 import { Paper} from "@mui/material"
 import {Search} from "@mui/icons-material"
 import KeyboardReturnIcon from '@mui/icons-material/KeyboardReturn';
+import {useNavigate} from 'react-router-dom'
 
-const SearchBar = ({home,setHome,setSearchText}) => {
-
+const SearchBar = ({home,setHome}) => {
+  const navigate = useNavigate()
   const searchVideos = ()=>{
-    let searchText =''
-    if(home){
-      searchText = document.querySelector('input').value
+    let searchText = document.querySelector('input').value
+    if(home){ 
       if(searchText !== ""){
-          setSearchText(searchText)
+          navigate(`/search/${searchText}`)
           setHome(false)
       }
     }
     else{
-      searchText = document.querySelector('input').value
-      setSearchText(searchText)
+      navigate(`/search/${searchText}`)
     }    
   }
   const goToHome = () => {
     setHome(true)
+    navigate('/')
   }
   return (
     <Paper
-    component="form"
     sx={{
       borderRadius:20,
       border: '1px solid #e3e3e3',
@@ -33,22 +32,20 @@ const SearchBar = ({home,setHome,setSearchText}) => {
       alignItems: 'center'
     }}
     >
-      <input
+      <input       
        className="search-bar"
        placeholder="Search..."
-       style={{lineHeight:'30px',fontSize:'20px',border:'none', outline:'none', width:'60vw'}}
-      />
+       style={{lineHeight:'30px',fontSize:'20px',border:'none', outline:'none', width:'60vw'}}/>      
       
-      {(home)?
-      <Search onClick ={searchVideos} sx={{color:'gray',mr:'10px','&:hover': { color:'red'}}}/>
-    :
-        <>
-        <Search onClick ={searchVideos} sx={{color:'gray',mr:'10px','&:hover': { color:'red'}}}/>
+      {(home)?      
+        <Search onClick ={searchVideos} sx={{color:'gray',mr:'10px','&:hover': { color:'red'}}}/>      
+      :
+      <>        
+        <Search onClick ={searchVideos} sx={{color:'gray',mr:'10px','&:hover': { color:'red'}}}/>        
         <KeyboardReturnIcon onClick ={goToHome} sx={{color:'gray','&:hover': { color:'black'}}}/>
-        </>
-    }
+      </>
+      }
     </Paper>
   )
 }
-
 export default SearchBar

@@ -1,40 +1,22 @@
 import {useState} from 'react'
-import {Stack} from '@mui/material'
 import Appbar from './Navbar.jsx'
 import HomePage from './HomePage.jsx';
 import SearchResult from './SearchResult.jsx';
-import videoData from './Data.js'
-import NoResult from './NoResult.jsx';
-
+import Watch from './Watch.jsx'
+import {Routes,Route} from 'react-router-dom'
+import ErrorPage from './ErrorPage.jsx';
 function App() {
   const[home,setHome] = useState(true)
-  const[searchText,setSearchText] = useState('')
-  const abc = videoData.filter( item => item.title.toLowerCase().includes(searchText))
-
   return (
-    <div className="App">
-      <Appbar home={home} setHome={setHome} setSearchText={setSearchText} />      
-      {
-        (home)?
-          <Stack direction='row' flexWrap='wrap'>
-            {
-              videoData.map((videos,index)=>{
-                return (<HomePage video={videos} key={index}/>)
-              })
-            }
-          </Stack>           
-        :
-        (
-          (abc.length) ? 
-          abc.map((videos,index)=>{
-          return (<SearchResult video={videos} key={index} />)
-          })
-        :
-          <NoResult/>
-        )               
-      }     
-      
-    </div>
+    <>
+      <Appbar home={home} setHome={setHome} />  
+      <Routes>        
+        <Route path='/' element={<HomePage/>} />
+        <Route path='/search/:id' element={<SearchResult/>} />
+        <Route path='/watch/:vid' element={<Watch/>}/>
+        <Route path='*' element={<ErrorPage/>}/>
+      </Routes>
+    </>    
   );
 }
 
