@@ -1,13 +1,20 @@
 import { Card,Stack,CardContent,Typography,IconButton } from "@mui/material"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import React from "react"
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 const SearchCard = ({video}) => {
+  const [watchParams,setWatchParams] = useSearchParams()
+    const navigate = useNavigate()
     const colors = ['pink', '#ff006f', '#4d47fc', '#7dfc47', '#fc3535', '#ff8e42', '#fff56e']
+    const watchVideo = () => {
+      setWatchParams({v:video.id})
+      navigate(`/watch?v=${video.id}`)
+    }
     return (
-        <Card sx={{width:'90%', border:'none', borderRadius:'10px',
+      <Card onClick={watchVideo} sx={{width:'90%', border:'none', borderRadius:'10px',
      padding:'5px',ml:'20px', mr:'20px', mt:'10px',display:'flex', 
-     boxShadow:'0px 0px 5px 2px gray','&:hover':{transform:'scale(1.05)',boxShadow:'0px 0px 5px 5px gray',zIndex:'1'}}}>
+     boxShadow:'0px 0px 5px 2px gray','&:hover':{transform:'scale(1.05) translate(20px,0px)',boxShadow:'0px 0px 5px 5px gray',zIndex:'1'}}}>
       <CardContent sx={{backgroundColor:colors[Math.floor(Math.random()*colors.length)], height:'150px', width:'200px',
        border:'none', borderRadius:'10px',mr:'10px',padding:'0px'}}>
 

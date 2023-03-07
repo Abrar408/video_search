@@ -11,8 +11,10 @@ function App() {
       <Appbar/>  
       <Routes>        
         <Route path='/' element={<HomePage/>} />
-        <Route path='/search/:id' element={<SearchResult/>} />
-        <Route path='/watch/:vid' element={<Watch/>}/>
+        <Route path='/search' element={<SearchResult/>} />
+        {/* <Route path='/search/:id' element={<SearchResult/>} /> */}
+        <Route path='/watch' element={<Watch/>}/>
+        {/* <Route path='/watch/:vid' element={<Watch/>}/> */}
         <Route path='*' element={<ErrorPage/>}/>
       </Routes>
     </>    

@@ -1,13 +1,15 @@
 import { Card,Stack,CardContent,Typography,IconButton } from "@mui/material"
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import React from "react"
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
  const HomeCard = ({video}) => {
+    const [watchParams,setWatchParams] = useSearchParams()
     const navigate = useNavigate()
     const colors = ['pink', '#ff006f', '#4d47fc', '#7dfc47', '#fc3535', '#ff8e42', '#fff56e']
     const watchVideo = () => {
-      navigate(`/watch/${video.id}`)
+      setWatchParams({v:video.id})
+      navigate(`/watch?v=${video.id}`)
     }
     return (
       <Card onClick={watchVideo} sx={{width:{md:'23%',sm:'46%', xs:'100%'}, border:'none', borderRadius:'10px',

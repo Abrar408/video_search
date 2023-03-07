@@ -1,16 +1,33 @@
 import { Paper} from "@mui/material"
 import {Search} from "@mui/icons-material"
-import {useNavigate} from 'react-router-dom'
+import {useNavigate, useSearchParams} from 'react-router-dom'
+
 
 const SearchBar = () => {
+ 
+  const [searchParams,setSearchParams] = useSearchParams()
   const navigate = useNavigate()
   
+  let searchText = document.querySelector('input')
+
+  // console.log(searchText)
+
   const searchVideos = ()=>{
-    let searchText = document.querySelector('input').value
-      if(searchText !== ""){
-          navigate(`/search/${searchText}`)
+    
+      if(searchText.value !== ""){
+          // console.log(searchText)
+          // setSearchParams({q:searchText});
+          // console.log(searchParams.get("q"))
+          
+          navigate(`/search?q=${searchParams.get("q") ||  searchText.value}`)
+          
       }       
-  }  
+  } 
+  const storeParam = (e) => {
+    e.preventDefault()
+    setSearchParams({q:e.target.value})
+  }
+
   return (
     <Paper
     sx={{
@@ -22,7 +39,10 @@ const SearchBar = () => {
       alignItems: 'center'
     }}
     >
-      <input id='input'       
+      <input 
+       onChange={storeParam}
+      //  ref={inputRef}
+       id='input'       
        className="search-bar"
        placeholder="Search..."
        style={{lineHeight:'30px',fontSize:'20px',border:'none', outline:'none', width:'60vw'}}/>          
