@@ -1,12 +1,12 @@
 import { AppBar,Toolbar,Stack } from "@mui/material"
 import SearchBar from "./Searchbar";
 
-const Navbar = (props) => {
+const Navbar = () => {
   return (
     <AppBar position='sticky' color='primary'>
         <Toolbar>            
             <Stack ml='auto' mr='auto'>
-                <SearchBar home={props.home} setHome={props.setHome} />
+                <SearchBar/>
             </Stack>
         </Toolbar>
     </AppBar>
