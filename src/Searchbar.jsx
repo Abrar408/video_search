@@ -1,10 +1,11 @@
 import { Paper} from "@mui/material"
 import {Search} from "@mui/icons-material"
 import {useNavigate, useSearchParams} from 'react-router-dom'
+import { useRef } from "react";
 
 
 const SearchBar = () => {
- 
+  const inputRef = useRef();
   const [searchParams,setSearchParams] = useSearchParams()
   const navigate = useNavigate()
   
@@ -14,12 +15,12 @@ const SearchBar = () => {
 
   const searchVideos = ()=>{
     
-      if(searchText.value !== ""){
+      if(inputRef.current.value !== ""){
           // console.log(searchText)
           // setSearchParams({q:searchText});
           // console.log(searchParams.get("q"))
           
-          navigate(`/search?q=${searchParams.get("q") ||  searchText.value}`)
+          navigate(`/search?q=${inputRef.current.value}`)
           
       }       
   } 
@@ -40,8 +41,8 @@ const SearchBar = () => {
     }}
     >
       <input 
-       onChange={storeParam}
-      //  ref={inputRef}
+      //  onChange={storeParam}
+       ref={inputRef}
        id='input'       
        className="search-bar"
        placeholder="Search..."
